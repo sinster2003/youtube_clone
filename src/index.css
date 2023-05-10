@@ -1,13 +1,138 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.search-bar{
+    display: inline-block;
+    border: none;
+    outline: none;
+    width: 23rem;
 }
+
+::-webkit-scrollbar{
+    width: 0;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgb(114, 113, 113);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+a{
+  text-decoration: none !important;
+}
+
+.height-div{
+  height: 300px;
+}
+
+.react-player {
+  height: 70vh !important;
+  width: 100% !important;
+}
+
+.count-stack{
+  padding-right: 16px !important;
+}
+
+.category-btn{
+    font-weight: bold !important;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor:pointer;
+    background: transparent;
+    outline: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0.6rem 0;
+    border-radius: 1.25rem;
+    transition: all 0.3s ease;
+  }
+
+.category-btn:hover {
+    background-color: #fc1503 !important;
+    color: white !important;
+  }
+  
+  .category-btn:hover span{
+    color: white !important;
+    opacity: 1 !important;
+  }
+
+  @media screen and (max-width:800px){
+    .copyright{
+      display: none !important;
+    }
+  }
+
+  @media screen and (max-width:899px){
+    .react-player {
+      height: 40vh !important;
+      width: 100% !important;
+    }
+  }
+
+  @media screen and (min-width:900px) and (max-width:1199px){
+    .react-player {
+      height: 50vh !important;
+      width: 100% !important;
+    }
+    .video-box{
+      padding-bottom: 10px !important;
+    }
+  }
+
+  @media screen and (max-width:600px){
+    .search-bar{
+      width: 13rem;
+    }
+    .height-div{
+      height: 200px;
+    }
+    .react-player {
+      height: 40vh !important;
+      width: 100% !important;
+    }
+    .channel-title{
+      font-size: 14px !important;
+    }
+    .stats{
+      font-size: 12px !important;
+    }
+    .card-title{
+      padding: 14px !important;
+    }
+    .video-box{
+      padding-bottom: 10px !important;
+      top: 76px !important;
+    }
+  }
+
+  @media screen and (max-width:372px){
+    .channel-title{
+      font-size: 12px !important;
+      padding-left: 8px !important;
+    }
+    .search-bar{
+      width: 8rem;
+    }
+    .card-title{
+      padding: 8px !important;
+      font-size: 1.25rem !important;
+    }
+    .count-stack{
+      padding-right: 8px !important;
+    }
+    .stats{
+      font-size: 9px !important;
+    }
+  }
