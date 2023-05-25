@@ -7,11 +7,14 @@ import {
   VideoDetail,
   ChannelDetail,
 } from "./components/index";
+import { useSelector } from "react-redux";
 
 const App = () => {
+  const theme = useSelector((state) => state.theme.value);
+
   return (
     <BrowserRouter>
-      <Box sx={{ backgroundColor: "#000" }}>
+      <Box sx={{ backgroundColor: theme === false ? "#000" : "#fff" }}>
         <NavBar />
         <Routes>
           <Route path="/" exact element={<Feed />} />

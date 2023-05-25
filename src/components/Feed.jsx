@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Stack, Box, Typography } from "@mui/material";
 import { SideBar, Videos } from "./"; // from ./components
 import { fetchFromApi } from "../utils/fetchFromApi";
+import { useSelector } from "react-redux";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
   const [videos, setVideos] = useState([]);
+  const theme = useSelector((state) => state.theme.value);
 
   useEffect(() => {
     fetchFromApi(`search?part=snippet&q=${selectedCategory}`).then((data) =>
@@ -29,7 +31,7 @@ const Feed = () => {
         <Typography
           className="copyright"
           variant="body2"
-          sx={{ mt: 1.5, mb: 1, color: "#fff" }}
+          sx={{ mt: 1.5, mb: 1, color: theme === false ? "#fff" : "#000" }}
         >
           Copyright &#169; UTube 2023
         </Typography>
@@ -38,7 +40,11 @@ const Feed = () => {
       <Box p={2} sx={{ height: "90vh", overflowY: "auto", flex: 2 }}>
         <Typography
           variant="h4"
-          sx={{ fontWeight: 600, color: "white", pb: 2 }}
+          sx={{
+            fontWeight: 600,
+            color: theme === false ? "white" : "black",
+            pb: 2,
+          }}
         >
           {selectedCategory} <span style={{ color: "#FC1503" }}>videos</span>
         </Typography>

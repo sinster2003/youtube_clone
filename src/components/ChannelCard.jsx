@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Typography, Card, CardContent, CardMedia } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
+import { useSelector } from "react-redux";
 import {
   demoProfilePicture,
   demoChannelUrl,
@@ -8,6 +9,8 @@ import {
 } from "../utils/constants";
 
 const ChannelCard = ({ channel, marginTop }) => {
+  const theme = useSelector((state) => state.theme.value);
+
   return (
     <Card
       sx={{
@@ -61,7 +64,7 @@ const ChannelCard = ({ channel, marginTop }) => {
             variant="subtitle1"
             sx={{
               fontWeight: "bold",
-              color: "#fff",
+              color: theme === false ? "#fff" : "#000",
               display: "flex",
               flexDirection: "row",
               alignItems: "center",

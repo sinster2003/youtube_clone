@@ -5,8 +5,11 @@ import { Link, useParams } from "react-router-dom";
 import { Box, Stack, Typography } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
 import { fetchFromApi } from "./../utils/fetchFromApi";
+import { useSelector } from "react-redux";
 
 const VideoDetail = () => {
+  const theme = useSelector((state) => state.theme.value);
+
   const { id } = useParams();
 
   const [videoDetail, setVideoDetail] = useState(null);
@@ -47,7 +50,9 @@ const VideoDetail = () => {
             position: "sticky",
             top: "77.6px",
             overflow: { lg: "hidden" },
-            background: "#000",
+            background: {
+              backgroundColor: theme === false ? "#000" : "#fff",
+            },
             mx: { lg: 4 },
           }}
         >
@@ -60,7 +65,10 @@ const VideoDetail = () => {
             className="card-title"
             variant="h5"
             p={2}
-            sx={{ color: "#fff", fontWeight: "bold" }}
+            sx={{
+              color: theme === false ? "#fff" : "#000",
+              fontWeight: "bold",
+            }}
           >
             {title}
           </Typography>

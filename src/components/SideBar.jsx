@@ -1,9 +1,11 @@
 import React from "react";
 import { Stack } from "@mui/material";
 import { categories } from "../utils/constants";
+import { useSelector } from "react-redux";
 
 const SideBar = ({ selectedCategory, setSelectedCategory }) => {
-  console.log(categories);
+  const theme = useSelector((state) => state.theme.value);
+
   return (
     <Stack
       direction="row"
@@ -36,6 +38,10 @@ const SideBar = ({ selectedCategory, setSelectedCategory }) => {
             <span
               style={{
                 opacity: category.name === selectedCategory ? "1" : "0.8",
+                color:
+                  theme === false || category.name === selectedCategory
+                    ? "#fff"
+                    : "#000",
               }}
             >
               {category.name}
